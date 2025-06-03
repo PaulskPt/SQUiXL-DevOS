@@ -29,6 +29,24 @@ struct Config_screenshot
 		float contrast = 1.0;
 };
 
+/**
+ * @brief Settings struct for EXTERNAL BME280 support
+ * BME280 which can be connected to the Stemma Qt/Qwiic connector of the SQUiXL
+ */
+struct Config_ext_bme280
+{
+		bool enabled = false;
+		String i2c_address = "0x76"; // Default I2C address for BME280
+		int i2c_sda = 4; // Default SDA pin
+		int i2c_scl = 5; // Default SCL pin
+		int i2c_freq = 100000; // Default I2C frequency in Hz
+
+		bool has_i2c_address()
+		{
+			return (i2c_address.length() > 0);
+		}
+};
+
 struct Config_mqtt
 {
 		bool enabled = false;
@@ -163,6 +181,7 @@ struct Config
 
 		String country = "";
 		String city = "";
+		String ntp_server = "pool.ntp.org"; // Default NTP server
 		int utc_offset = 999;
 
 		// Time
@@ -188,6 +207,9 @@ struct Config
 
 		// Audio specific settings
 		Config_audio audio;
+
+		// Own BME280 specific settings - see Struct above
+		Config_ext_bme280 ext_bme280;
 
 		// MQTT specific settings - see Struct above
 		Config_mqtt mqtt;
@@ -264,6 +286,9 @@ class Settings
 
 			settings_groups.push_back({"Open Weather Settings", SettingType::WIDGET, "Add your Open Weather API key here to be able to see your current weather details on your SQUiXL."});
 
+			// Note @PaulskPt: maybe we should change this into a: ui > dashboard > widget? 
+			settings_groups.push_back({"External BME280 Settings", SettingType::WEB, "Add your BME280 I2C address and settings here to be able to use your external BME280 sensor on your SQUiXL."});
+
 			settings_groups.push_back({"MQTT Settings", SettingType::WEB});
 
 			settings_groups.push_back({"Screenie", SettingType::SCREENIE});
@@ -327,6 +352,15 @@ class Settings
 		SettingsOptionString widget_ow_apikey{&config.open_weather.api_key, 4, "API KEY", 0, -1, "", false};
 		SettingsOptionIntRange widget_ow_poll_interval{&config.open_weather.poll_frequency, 10, 300, 10, false, 4, "Poll Interval (Min)"};
 		SettingsOptionBool widget_ow_units{&config.open_weather.units_metric, 4, "Temperature Units", "Fahrenheit", "Celsius"};
+
+		// Own BME280
+		SettingsOptionBool ext_bme280_enabled{&config.ext_bme280.enabled, 4, "Enabled", "NO", "YES"};
+		//SettingsOptionString ext_bme280_i2c_address{&config.ext_bme280.i2c_address, 4, "I2C Address", 0, -1, "0x76", false};
+		SettingsOptionString ext_bme280_i2c_address_hex{&config.ext_bme280.i2c_address, 4, "I2C Address (Hex)", 0, -1, "0x76", false};
+		SettingsOptionInt ext_bme280_i2c_sda{&config.ext_bme280.i2c_sda, 4, 0, false, 4, "I2C SDA Pin"};
+		SettingsOptionInt ext_bme280_i2c_scl{&config.ext_bme280.i2c_scl, 4, 0, false, 4, "I2C SCL Pin"};
+		SettingsOptionInt ext_bme280_i2c_freq{&config.ext_bme280.i2c_freq, 4, 100000, false, 4, "I2C Frequency (Hz)"};
+		//SettingsOptionIntRange ext_bme280_i2c_address_int{&config.ext_bme280.i2c_address, 0, 127, 1, false, 4, "I2C Address (Int)"};
 
 		// MQTT
 		SettingsOptionBool mqtt_enabled{&config.mqtt.enabled, 5, "Enabled", "NO", "YES"};

@@ -1,3 +1,4 @@
+#include <Arduino.h>
 const int8_t voice_start_drawing[] PROGMEM = {
 	82, 73, 70, 70, 70, 126, 0, 0, 87, 65, 86, 69, 74, 85, 78, 75,
 	28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,

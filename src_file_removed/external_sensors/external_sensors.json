@@ -1,0 +1,138 @@
+{
+  "external_sensors" : [
+    {
+      "sensor_1" : [
+        {
+          "i2c_address" : "0x76",
+          "brand" : "Pimoroni",
+          "sensor_class" : "Environmental",
+          "sensor_type" : "BME280",
+          "part of" : "Multi-sensor-stick",
+          "product_ID" : "PIM745",
+          "nr_of_functions" : "3",
+          "function_1" : [
+            {
+              "function_nr" : "1",
+              "function" : "Temperature",
+              "value_type" : "float",
+              "precision" : "0.01",
+              "unit" : "°C",
+              "min_value" : "-40",
+              "max_value" : "85" 
+            }
+          ],
+          "function_2" : [
+            {
+              "function_nr" : "2",
+              "function" : "Humidity",
+              "value_type" : "float",
+              "precision" : "0.01",
+              "unit" : "% rH",
+              "min_value" : "0",
+              "max_value" : "100"
+            }
+          ],
+          "function_3" : [
+            {
+              "function_nr" : "3",
+              "function" : "Pressure",
+              "value_type" : "float",
+              "precision" : "0.01",
+              "unit" : "hPa",
+              "min_value" : "300",
+              "max_value" : "1100"
+            }
+          ]
+        }
+      ],
+      "sensor_2" : [
+        { 
+          "i2c_address" : "0x23",
+          "brand" : "Pimoroni",
+          "sensor_class" : "Ambient Light",
+          "sensor_type" : "LTR559",
+          "part of" : "Multi-sensor-stick",
+          "product_ID" : "PIM745",
+          "nr_of_functions" : "2",
+          "function_1" : [
+            {
+              "function_nr" : "1",
+              "function" : "Ambient light",
+              "value_type" : "float",
+              "precision" : "0.01",
+              "unit" : "lux",
+              "min_value" : "0",
+              "max_value" : "65535"
+            }
+          ],
+          "function_2" : [
+            {
+              "function_nr" : "2",
+              "function" : "Proximity detection",
+              "value_type" : "float",
+              "precision" : "0.01",
+              "unit" : "cm",
+              "min_value" : "0",
+              "max_value" : "255"
+            }
+          ]
+        }
+      ],
+      "sensor_3" : [
+        {
+          "i2c_address" : "0x6a",
+          "brand" : "Pimoroni", 
+          "sensor_class" : "Motion",
+          "sensor_type" : "LSM5DS3",
+          "part of" : "Multi-sensor-stick",
+          "product_ID" : "PIM745",
+          "nr_of_functions" : "2",
+          "function_1" : [
+            {
+              "function_nr" : "1",
+              "function" : "Acellerometer",
+              "value_type" : "float",
+              "precision" : "0.01",
+              "unit" : "g",
+              "min_value" : "-16",
+              "max_value" : "16"
+            }
+          ],
+          "function_2" : [
+            {
+              "function_nr" : "2",
+              "function" : "Gyroscope",
+              "value_type" : "float",
+              "precision" : "0.01",
+              "unit" : "dps",
+              "min_value" : "-2000",
+              "max_value" : "2000"
+            }
+          ]
+        }
+      ],
+      "sensor_4" : [
+        {
+          "i2c_address" : "0x18",
+          "brand" : "Adafruit", 
+          "sensor_class" : "Environmental",
+          "sensor_type" : "MCP9808",
+          "part of" : "Temperature sensor",
+          "product_ID" : "ADA5027",
+          "nr_of_functions" : "1",
+          "function_1" : [
+            {
+              "function_nr" : "1",
+              "function" : "Temperature",
+              "value_type" : "float",
+              "precision" : "0.0625",
+              "unit" : "°C",
+              "min_value" : "-40",
+              "max_value" : "125"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
