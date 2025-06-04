@@ -33,7 +33,8 @@
 #include <Wire.h>
 // #include <SPI.h>
 #include <Adafruit_Sensor.h>
-#include <Adafruit_BME280.h>
+//#include <PS_Adafruit_BME280.h>
+#include "../../lib/PS_BME280/PS_Adafruit_BME280.h"
 #include "ui/dashboard/ui_gauge.h"
 
 // #define BME_SCK 13

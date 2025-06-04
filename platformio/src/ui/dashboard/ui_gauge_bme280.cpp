@@ -6,7 +6,7 @@
 //{
 #include "ui/dashboard/ui_gauge_bme280.h"
 #include "mqtt/mqtt.h"
-#include <Adafruit_BME280.h>
+#include "../../lib/PS_BME280/PS_Adafruit_BME280.h"
 //}
 
 bool ui_gauge_bme280::redraw(uint8_t fade_amount, int8_t tab_group)

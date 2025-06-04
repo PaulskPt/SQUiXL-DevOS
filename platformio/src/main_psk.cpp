@@ -335,7 +335,6 @@ void create_ui_elements()
 	widget_extss.create(10, 120, 460, 240, TFT_BLACK, 12, 0, "EXT Sensor Values");
 	widget_extss.set_refresh_interval(1000);
 	screen_extss.add_child_ui(&widget_extss);
-	
 	screen_main.set_navigation(Directions::LEFT, &screen_extss, true);
 	screen_main.set_navigation(Directions::DOWN, &screen_settings, true);
 }
